@@ -15,7 +15,7 @@ function startGame(){
 
     // Initial figures
     playerPoints = 0;
-    ui.enable("gameOn")
+    UI.enableSpeechCommandBtn("gameOn")
 }
 
 //this is run when player looses all lives

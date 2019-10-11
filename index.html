@@ -12,7 +12,9 @@
     <div class="header">
         <h1>ARCADE GAME</h1>
     </div>
-
+    
+    <!-- conainer for canvas -->
+    <div id="canvas-container"></div>
     <!-- dark overlay -->
     <div class="overlay"></div>
 
@@ -44,9 +46,38 @@
         <button onclick="resetGame()"> Play Again </button>
     </div>
     
-    <div class="controls">
+    <div class="learning">
         <div id="message-box"></div>
-        <input type="button" id="start-btn" value="Click and hold to speak commands 🔈" />
+        <button  id="start-btn">Click and hold to speak commands 🔈</button>
+
+        <div class="train">
+            <h3>
+                Click and hold any of the buttons below to train the model to recognise
+                custom voice commands
+            </h3>
+            <button class="train-btn" id="train-up">
+                Up ⬆️
+                <span>0 trains</span>
+            </button>
+            <button class="train-btn" id="train-left">
+                Left ⬅️
+                <span>0 trains</span>
+            </button>
+            <button class="train-btn" id="train-right">
+                Right ➡️
+                <span>0 trains</span>
+            </button>
+            <button class="train-btn" id="train-down">
+                Down ⬇️️
+                <span>0 trains</span>
+            </button>
+            <button class="train-btn" id="train-_background_noise_">
+                Noise 💥
+                <span>0 trains</span>
+            </button>
+        </div>
+        
+        <button id="begin-training">Train</button>
     </div>
     
     <!-- all javascript -->
@@ -57,5 +88,6 @@
     <script src="js/engine.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/speech-commands.js"></script>
+    <script src="js/recogniser.js"></script>
 </body>
 </html>

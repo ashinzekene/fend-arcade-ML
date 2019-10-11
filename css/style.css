@@ -1,3 +1,8 @@
+* {
+    box-sizing: border-box;
+}
+
+
 body {
     text-align: center;
     font-family: 'Gloria Hallelujah', cursive;
@@ -15,7 +20,7 @@ body {
     animation-name: pulse;
     -webkit-backface-visibility: visible !important;
 	backface-visibility: visible !important;
-	animation-duration: .90s;
+	animation-duration: .50s;
 }
 
 canvas {
@@ -34,6 +39,8 @@ canvas {
     margin: 0 auto;
     border-radius: 5px;
 }
+
+/* #canvas-container {} */
 
 .start-game {
     font-family: 'Alegreya', serif;
@@ -134,7 +141,7 @@ canvas {
 	}
 
 	50% {
-		transform: scale3d(1.2, 1.2, 1.2);
+		transform: scale3d(1.1, 1.1, 1.1);
 	}
 
 	to {
@@ -142,26 +149,40 @@ canvas {
 	}
 }
 
-.controls {
-    position: absolute;
-    bottom: 100px;
-    width: 100vw;
+.learning {
+    margin: 20px auto;
+    width: 90vw;
+    max-width: 900px;
 }
 
-.controls #message-box {
+.learning #message-box {
     padding: 5px 0px;   
 }
-.controls #start-btn {
+
+.learning button {
     margin: auto;
     cursor: pointer;
-    background-color: #990005;
     border: none;
     border-radius: 3px;
     padding: 7px 15px;
     font-size: 20px;
+}
+
+.learning #start-btn {
+    background-color: #990005;
     color: #fff;
 }
-.controls #start-btn[disabled] {
+button[disabled] {
     cursor: not-allowed;
     background-color: #aaaaaa;
+}
+
+.train {
+    padding: 20px;
+}
+
+#begin-training {
+    background: #222222;
+    color: white;
+    padding: 10px 60px;
 }

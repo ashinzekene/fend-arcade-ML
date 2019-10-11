@@ -1,27 +1,18 @@
 (() => {
   const recognizer = speechCommands.create("BROWSER_FFT", "directional4w");
-  const probabilityThreshold = 0.75;
-
-  const init = async () => {
-    ui.disable();
-    ui.showMessage("Loding machine learning model. Please wait....🕑")
-    await recognizer.ensureModelLoaded();
-    ui.showMessage("Machine learning model. You can now start the game 🎮")
-    ui.enable("modelLoaded");
-  };
-  init();
+  const probabilityThreshold = 0.55;
 
   function listen() {
-    recognizer
-      .listen(
-        result => {
-          const results = recognizer.wordLabels().map((w, i) => [w, result.scores[i]]);
-          handleSpeechCommands(results);
-        },
-        {
-          probabilityThreshold,
-        },
-      )
+    console.log(window.transferRecognizer.countExamples())
+    if (!window.transferRecognizer) return
+    window.transferRecognizer.listen(result => {
+      console.log(result.scores)
+      const results = transferRecognizer.wordLabels().map((w, i) => [w, result.scores[i]]);
+      handleSpeechCommands(results);
+    },
+    {
+      probabilityThreshold,
+    })
       .then(() => {
         console.log("Streaming recognition started.");
       })
@@ -36,8 +27,8 @@
     recognizer.stopListening();
   }
 
-  ui.onStartListen(listen);
-  ui.onStopListen(stopListening);
+  UI.onStartListen(listen);
+  UI.onStopListen(stopListening);
 
   function handleSpeechCommands(results) {
     results.sort((a, b) => b[1] - a[1]);
