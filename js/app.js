@@ -15,12 +15,14 @@ function startGame(){
 
     // Initial figures
     playerPoints = 0;
+    ui.enable("gameOn")
 }
 
 //this is run when player looses all lives
 function gameOver(){
     overlay.classList.add("show");
     gameover.classList.add("show");
+    ui.disable()
 }
 
 // this function resets the game
@@ -191,9 +193,9 @@ var enemySpeed;
 setInterval(function instances(){
     enemyX = columns[Math.floor(Math.random() * 5)],
     enemyY = rows[Math.floor(Math.random() * 3)],
-    enemySpeed = Math.floor(Math.random() * 15),
+    enemySpeed = 1.5,
     allEnemies.push(new Enemy(enemyX, enemyY, enemySpeed)); 
-},500)
+}, 1000)
 
 
 
@@ -205,7 +207,7 @@ var allEnemies = [ new Enemy(-8, 60, 3), new Enemy(0, 140, 10), new Enemy(-5, 30
 var player = new Player( 200, 380);
 
 // instantiate lives
-var alllives = [ new Lives(10, 540), new Lives(40, 540), new Lives(70, 540)];
+var alllives = [ new Lives(10, 540), new Lives(40, 540), new Lives(70, 540), new Lives(100, 540)];
 
 var allKeys = [ ];
 

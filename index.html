@@ -20,18 +20,18 @@
     <div class="start-game">
         <h1>Welcome to Frogger game</h1>
         <h3>Instructions</h3>
-        <p>Use your arrow keys to move the player: up, down, left, right. Ensure your player doesn't collide with the bugs. You loose 50pts on any collison.</p>
+        <p>Use your voice to move the player: up, down, left, right. Ensure your player doesn't collide with the bugs. You loose 50pts on any collison.</p>
         <h3>Challenge</h3>
         <p>Try to get to the water blocks at the top and gain 5 keys to win game.</p>
-        <h4>You have 3 lives. Good luck!</h4>
-        <button onclick="startGame()"> I accept Challenge </button>
+        <h4>You have 4 lives. Good luck!</h4>
+        <button onclick="startGame()"> I accept Challenge ⛳️</button>
     </div>
 
     <!-- modal for when player looses all lives -->
     <div class="game-over">
-        <h1>Game Over</h1>
+        <h1>Game Over 😀</h1>
         <p> Welldone!</p>
-        <p>You're here because you lost all 3 lives</p>
+        <p>You're here because you lost all 4 lives</p>
         <h3>Play again to win the game</h3>
         <button onclick="resetGame()"> Play Again </button>
     </div>
@@ -44,9 +44,17 @@
         <button onclick="resetGame()"> Play Again </button>
     </div>
     
+    <div class="controls">
+        <input type="button" id="start-btn" value="Click and hold to speak commands 🔈" />
+    </div>
+    
     <!-- all javascript -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/speech-commands/dist/speech-commands.min.js"></script>  
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/speech-commands.js"></script>
 </body>
 </html>
