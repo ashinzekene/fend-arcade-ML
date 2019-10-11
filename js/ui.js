@@ -1,5 +1,6 @@
 (() => {
   const startBtn = document.querySelector("#start-btn");
+  const messageBox = document.querySelector("#message-box");
 
   window.ui = {
     onStartListen(fn) {
@@ -17,13 +18,18 @@
     disable() {
       startBtn.setAttribute("disabled", true);
     },
+    showMessage(text) {
+      messageBox.textContent = text
+    },
+    clearMessage() {
+      messageBox.textContent = ""
+    },
     enable: (function() {
       const enablers = {
         modelLoaded: false,
         gameOn: false,
       };
       function tryToEnable() {
-        console.log(Object.values(enablers));
         if (Object.values(enablers).every(v => v)) {
           startBtn.removeAttribute("disabled");
         }

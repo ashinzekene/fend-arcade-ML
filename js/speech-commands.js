@@ -4,7 +4,9 @@
 
   const init = async () => {
     ui.disable();
+    ui.showMessage("Loding machine learning model. Please wait....🕑")
     await recognizer.ensureModelLoaded();
+    ui.showMessage("Machine learning model. You can now start the game 🎮")
     ui.enable("modelLoaded");
   };
   init();

@@ -148,6 +148,9 @@ canvas {
     width: 100vw;
 }
 
+.controls #message-box {
+    padding: 5px 0px;   
+}
 .controls #start-btn {
     margin: auto;
     cursor: pointer;
