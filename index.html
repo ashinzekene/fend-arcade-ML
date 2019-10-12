@@ -13,72 +13,77 @@
         <h1>ARCADE GAME</h1>
     </div>
     
-    <!-- conainer for canvas -->
-    <div id="canvas-container"></div>
-    <!-- dark overlay -->
-    <div class="overlay"></div>
+    <div class="main-game">
+        <!-- conainer for canvas -->
+        <div id="canvas-container">
+            <!-- dark overlay -->
+            <div class="overlay"></div>
+        
+            <!-- modal for starting the game -->
+            <div class="start-game">
+                <h1>Welcome to Frogger game</h1>
+                <h3>Instructions</h3>
+                <p>Use your voice to move the player: up, down, left, right. Ensure your player doesn't collide with the bugs. You loose 50pts on any collison.</p>
+                <h3>Challenge</h3>
+                <p>Try to get to the water blocks at the top and gain 5 keys to win game.</p>
+                <h4>You have 4 lives. Good luck!</h4>
+                <button onclick="startGame()"> I accept Challenge ⛳️</button>
+            </div>
+        
+            <!-- modal for when player looses all lives -->
+            <div class="game-over">
+                <h1>Game Over 😀</h1>
+                <p> Welldone!</p>
+                <p>You're here because you lost all 4 lives</p>
+                <h3>Play again to win the game</h3>
+                <button onclick="resetGame()"> Play Again </button>
+            </div>
+        
+            <!-- Modal for when player wins the game -->
+            <div class="winner">
+                <h1>You're a Winner! 🎉 🎉 </h1>
+                <p>Yaay! Welldone! You just won!</p>
+                <h3>Play again to win again</h3>
+                <button onclick="resetGame()"> Play Again </button>
+            </div>
+        </div>
+        <!-- conainer for machine learning -->
+        <div class="learning">
+            <div id="message-box"></div>
+            
+            <div class="train">
+                <h3>
+                    Click and hold any of the buttons below to train the model to recognise
+                    custom voice commands
+                </h3>
+                <button class="train-btn" id="train-up">
+                    Up ⬆️
+                    <span>0 trains</span>
+                </button>
+                <button class="train-btn" id="train-left">
+                    Left ⬅️
+                    <span>0 trains</span>
+                </button>
+                <button class="train-btn" id="train-right">
+                    Right ➡️
+                    <span>0 trains</span>
+                </button>
+                <button class="train-btn" id="train-down">
+                    Down ⬇️️
+                    <span>0 trains</span>
+                </button>
+                <button class="train-btn" id="train-_background_noise_">
+                    Noise 💥
+                    <span>0 trains</span>
+                </button>
+            </div>
+            
+            <button id="begin-training">Train</button>
+            <button  id="start-btn">Click and hold to speak commands 🔈</button>
 
-    <!-- modal for starting the game -->
-    <div class="start-game">
-        <h1>Welcome to Frogger game</h1>
-        <h3>Instructions</h3>
-        <p>Use your voice to move the player: up, down, left, right. Ensure your player doesn't collide with the bugs. You loose 50pts on any collison.</p>
-        <h3>Challenge</h3>
-        <p>Try to get to the water blocks at the top and gain 5 keys to win game.</p>
-        <h4>You have 4 lives. Good luck!</h4>
-        <button onclick="startGame()"> I accept Challenge ⛳️</button>
-    </div>
-
-    <!-- modal for when player looses all lives -->
-    <div class="game-over">
-        <h1>Game Over 😀</h1>
-        <p> Welldone!</p>
-        <p>You're here because you lost all 4 lives</p>
-        <h3>Play again to win the game</h3>
-        <button onclick="resetGame()"> Play Again </button>
-    </div>
-
-    <!-- Modal for when player wins the game -->
-    <div class="winner">
-        <h1>You're a Winner! 🎉 🎉 </h1>
-        <p>Yaay! Welldone! You just won!</p>
-        <h3>Play again to win again</h3>
-        <button onclick="resetGame()"> Play Again </button>
+        </div>
     </div>
     
-    <div class="learning">
-        <div id="message-box"></div>
-        <button  id="start-btn">Click and hold to speak commands 🔈</button>
-
-        <div class="train">
-            <h3>
-                Click and hold any of the buttons below to train the model to recognise
-                custom voice commands
-            </h3>
-            <button class="train-btn" id="train-up">
-                Up ⬆️
-                <span>0 trains</span>
-            </button>
-            <button class="train-btn" id="train-left">
-                Left ⬅️
-                <span>0 trains</span>
-            </button>
-            <button class="train-btn" id="train-right">
-                Right ➡️
-                <span>0 trains</span>
-            </button>
-            <button class="train-btn" id="train-down">
-                Down ⬇️️
-                <span>0 trains</span>
-            </button>
-            <button class="train-btn" id="train-_background_noise_">
-                Noise 💥
-                <span>0 trains</span>
-            </button>
-        </div>
-        
-        <button id="begin-training">Train</button>
-    </div>
     
     <!-- all javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.1.0/dist/tf.min.js"></script>
