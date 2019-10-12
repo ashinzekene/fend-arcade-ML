@@ -22,7 +22,7 @@ function startGame(){
 function gameOver(){
     overlay.classList.add("show");
     gameover.classList.add("show");
-    ui.disable()
+    UI.disable()
 }
 
 // this function resets the game

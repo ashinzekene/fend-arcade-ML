@@ -156,7 +156,8 @@ canvas {
 }
 
 .learning #message-box {
-    padding: 5px 0px;   
+    padding: 5px 0px;
+    height: 40px;
 }
 
 .learning button {

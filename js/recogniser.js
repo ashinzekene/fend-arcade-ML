@@ -3,7 +3,7 @@
   const trainedCounts = {}
   const constants = {
     EPOCH: 25,
-    MIN_SAMPLES: 2
+    MIN_SAMPLES: 10
   }
   
   const directions = ["up", "left", "right", "down", "_background_noise_"]
@@ -15,7 +15,7 @@
   async function loadModel() {
     UI.disableTrainBtns()
     UI.showMessage("Loding machine learning model. Please wait....🕑")
-    const baseRecognizer = speechCommands.create('BROWSER_FFT');
+    const baseRecognizer = speechCommands.create('BROWSER_FFT', 'directional4w');
     await baseRecognizer.ensureModelLoaded();
     UI.showMessageWithTimeout("Machine learning model loaded. You can now begin training")
     UI.enableSpeechCommandBtn("modelLoaded");    
@@ -44,9 +44,8 @@
       epochs: constants.EPOCH,
       callback: {
         onEpochEnd: async (epoch, logs) => {
-          UI.showMessageWithTimeout(`
-            Epoch ${epoch} of ${constants.EPOCH} complete. Loss: ${logs.loss}. Accuracy: ${logs.acc}`,
-            2000
+          UI.showMessage(`
+            Epoch ${epoch} of ${constants.EPOCH} complete. Loss: ${logs.loss}. Accuracy: ${logs.acc}`
           )
           console.log(`Epoch ${epoch}: loss=${logs.loss}, accuracy=${logs.acc}`);
         }
