@@ -1,4 +1,4 @@
-frontend-nanodegree-arcade-game
+fend-arcade-ML
 ===============================
 
 ## What is this? 
@@ -7,7 +7,7 @@ This is an arcade game which is one of my FEND projects
 ![snippet](images/arcade.png)
 
 ## To play
-[Arcade Game](https://ashinzekene.github.io/fend-arcade-game/)
+[Arcade Game](https://ashinzekene.github.io/fend-arcade-ML/)
 
 ## Instructions
 * Use **speech commands** to move the player: up, down, left, right. 
