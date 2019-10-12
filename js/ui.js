@@ -13,8 +13,12 @@
   window.UI = {
     onStartListen(fn) {
       startBtn.addEventListener("pointerdown", e => {
-        if (e.target.getAttribute("disabled")) return;
-        fn(e);
+        if (!e.target.getAttribute("disabled")) fn(e);
+        else {
+          UI.showMessage(
+            "The model needs to be loaded and trained and you have to start the game"
+          )
+        }
       });
     },
     onStopListen(fn) {
@@ -23,18 +27,18 @@
         fn(e);
       });
     },
-    disableSpeechCommandBtn() {
-      startBtn.setAttribute("disabled", true);
-    },
     showMessage(text) {
       messageBox.textContent = text
     },
-    showMessageWithTimeout(text, timeout=2000) {
+    showMessageWithTimeout(text, timeout=3000) {
       messageBox.textContent = text
       setTimeout(() => messageBox.textContent = "", timeout)
     },
     clearMessage() {
       messageBox.textContent = ""
+    },
+    disableSpeechCommandBtn() {
+      startBtn.setAttribute("disabled", true);
     },
     enableSpeechCommandBtn: (function() {
       const enablers = {
@@ -68,7 +72,7 @@
       const button = document.querySelector(`#train-${dir}`)
       if (!button) return
       button.firstElementChild.textContent = `${count} trains`;
-      button.style.backgroundColor = "#99AAFF"
+      button.style.backgroundColor = "#69BAFF"
     },
     onBeginTrainDown(fn) {
       beginTrainBtn.addEventListener("click", fn)

@@ -14,6 +14,7 @@
 
   async function loadModel() {
     UI.disableTrainBtns()
+    UI.disableSpeechCommandBtn()
     UI.showMessage("Loding machine learning model. Please wait....🕑")
     const baseRecognizer = speechCommands.create('BROWSER_FFT', 'directional4w');
     await baseRecognizer.ensureModelLoaded();
@@ -35,7 +36,7 @@
     if (!Object.values(trainedCounts).every(count => count > constants.MIN_SAMPLES)) {
       UI.showMessageWithTimeout(
         `You have to train each direction for at least ${constants.MIN_SAMPLES} times`,
-        3000
+        4000
       )
       return
     }
@@ -45,12 +46,13 @@
       callback: {
         onEpochEnd: async (epoch, logs) => {
           UI.showMessage(`
-            Epoch ${epoch} of ${constants.EPOCH} complete. Loss: ${logs.loss}. Accuracy: ${logs.acc}`
+            Epoch ${epoch+1} of ${constants.EPOCH} complete. Loss: ${logs.loss}. Accuracy: ${logs.acc}`
           )
           console.log(`Epoch ${epoch}: loss=${logs.loss}, accuracy=${logs.acc}`);
         }
       }
     })
+    UI.enableSpeechCommandBtn("trained")
   }
   
 })()
