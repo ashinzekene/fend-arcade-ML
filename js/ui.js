@@ -4,6 +4,8 @@
   const trainBtns = document.querySelectorAll(".train-btn");
   const trainContainer = document.querySelector(".train");
   const beginTrainBtn = document.querySelector("#begin-training");
+  const downloadExamplesBtn = document.querySelector("#download-examples");
+  const uploadSampleBtn = document.querySelector("#upload-sample");
 
   function dirBtnClicked(dir, e) {
     return e.target.id === `train-${dir}` ||
@@ -13,7 +15,10 @@
   window.UI = {
     onStartListen(fn) {
       startBtn.addEventListener("pointerdown", e => {
-        if (!e.target.getAttribute("disabled")) fn(e);
+        if (!e.target.getAttribute("disabled")) {
+          e.target.classList.add("pressed");
+          fn(e);
+        }
         else {
           UI.showMessage(
             "The model needs to be loaded and trained and you have to start the game"
@@ -24,6 +29,7 @@
     onStopListen(fn) {
       startBtn.addEventListener("pointerup", e => {
         if (e.target.getAttribute("disabled")) return;
+        e.target.classList.remove("pressed");
         fn(e);
       });
     },
@@ -76,6 +82,12 @@
     },
     onBeginTrainDown(fn) {
       beginTrainBtn.addEventListener("click", fn)
+    },
+    onDownloadExample(fn) {
+      downloadExamplesBtn.addEventListener("click", fn)
+    },
+    onLoadExample(fn) {
+      uploadSampleBtn.addEventListener("change", fn)
     }
   };
 })();

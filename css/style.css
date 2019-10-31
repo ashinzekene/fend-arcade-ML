@@ -203,9 +203,43 @@ button[disabled] {
     margin: 30px auto;
     background-color: #990005;
     color: #fff;
+    transition: 500ms transform;
+    will-change: transform;
+}
+.controls #start-btn.pressed {
+    background-color: #74070a;
+    transform: translateY(6px);
 }
 .learning #start-btn[disabled] {
-    background-color: #aaaaaa;    
+    background-color: #aaaaaa;
+}
+
+.visually-hidden {
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+/* Separate rule for compatibility, :focus-within is required on modern Firefox and Chrome */
+input.visually-hidden:focus + label {
+    outline: thin dotted;
+}
+input.visually-hidden:focus-within + label {
+    outline: thin dotted;
+}
+
+label {
+    background-color: royalblue;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 3px 15px;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #fff;
 }
 
 @media screen and (min-width: 1024px) {
