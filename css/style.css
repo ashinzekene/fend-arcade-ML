@@ -160,6 +160,12 @@ canvas {
     padding: 7px 15px;
     font-size: 20px;
     color: #fff;
+    transition: 500ms transform;
+    will-change: transform;
+}
+.controls #start-btn.pressed {
+    background-color: #74070a;
+    transform: translateY(6px);
 }
 .controls #start-btn[disabled] {
     cursor: not-allowed;

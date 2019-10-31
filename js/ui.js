@@ -6,12 +6,14 @@
     onStartListen(fn) {
       startBtn.addEventListener("pointerdown", e => {
         if (e.target.getAttribute("disabled")) return;
+        e.target.classList.add("pressed")
         fn(e);
       });
     },
     onStopListen(fn) {
       startBtn.addEventListener("pointerup", e => {
         if (e.target.getAttribute("disabled")) return;
+        e.target.classList.remove("pressed")
         fn(e);
       });
     },

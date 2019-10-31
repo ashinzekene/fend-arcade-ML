@@ -13,20 +13,16 @@
 
   function listen() {
     recognizer
-      .listen(
-        result => {
+      .listen(result => {
           const results = recognizer.wordLabels().map((w, i) => [w, result.scores[i]]);
           handleSpeechCommands(results);
-        },
-        {
-          probabilityThreshold,
-        },
+        }, { probabilityThreshold },
       )
       .then(() => {
         console.log("Streaming recognition started.");
       })
       .catch(err => {
-        console.log("ERROR: Failed to start streaming display: " + err.message);
+        console.log("ERROR: Failed to start streaming: " + err.message);
       });
   }
 
