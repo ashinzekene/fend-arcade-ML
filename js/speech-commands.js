@@ -2,14 +2,17 @@
   const probabilityThreshold = 0.55;
 
   function listen() {
-    if (!window.transferRecognizer) return
-    window.transferRecognizer.listen(result => {
-      const results = transferRecognizer.wordLabels().map((w, i) => [w, result.scores[i]]);
-      handleSpeechCommands(results);
-    },
-    {
-      probabilityThreshold,
-    })
+    if (!window.transferRecognizer) return;
+    window.transferRecognizer
+      .listen(
+        result => {
+          const results = transferRecognizer.wordLabels().map((w, i) => [w, result.scores[i]]);
+          handleSpeechCommands(results);
+        },
+        {
+          probabilityThreshold,
+        },
+      )
       .then(() => {
         console.log("Streaming recognition started.");
       })
@@ -29,7 +32,6 @@
 
   function handleSpeechCommands(results) {
     results.sort((a, b) => b[1] - a[1]);
-    console.log(results)
     const command = results[0];
     player.handleInput(command[0]);
   }

@@ -8,21 +8,17 @@
   const uploadSampleBtn = document.querySelector("#upload-sample");
 
   function dirBtnClicked(dir, e) {
-    return e.target.id === `train-${dir}` ||
-      e.target.parentElement.id === `train-${dir}`
+    return e.target.id === `train-${dir}` || e.target.parentElement.id === `train-${dir}`;
   }
-  
+
   window.UI = {
     onStartListen(fn) {
       startBtn.addEventListener("pointerdown", e => {
         if (!e.target.getAttribute("disabled")) {
           e.target.classList.add("pressed");
           fn(e);
-        }
-        else {
-          UI.showMessage(
-            "The model needs to be loaded and trained and you have to start the game"
-          )
+        } else {
+          UI.showMessage("The model needs to be loaded and trained and you have to start the game");
         }
       });
     },
@@ -34,14 +30,14 @@
       });
     },
     showMessage(text) {
-      messageBox.textContent = text
+      messageBox.textContent = text;
     },
-    showMessageWithTimeout(text, timeout=3000) {
-      messageBox.textContent = text
-      setTimeout(() => messageBox.textContent = "", timeout)
+    showMessageWithTimeout(text, timeout = 3000) {
+      messageBox.textContent = text;
+      setTimeout(() => (messageBox.textContent = ""), timeout);
     },
     clearMessage() {
-      messageBox.textContent = ""
+      messageBox.textContent = "";
     },
     disableSpeechCommandBtn() {
       startBtn.setAttribute("disabled", true);
@@ -62,32 +58,32 @@
         tryToEnable();
       };
     })(),
-   disableTrainBtns() {
-     trainBtns.forEach(btn => btn.setAttribute("disabled", true))
+    disableTrainBtns() {
+      trainBtns.forEach(btn => btn.setAttribute("disabled", true));
     },
     enableTrainBtns() {
-      trainBtns.forEach(btn => btn.removeAttribute("disabled"))
-   },
+      trainBtns.forEach(btn => btn.removeAttribute("disabled"));
+    },
     onTrainBtnDown(dir, fn) {
       trainContainer.addEventListener("click", e => {
-        if (!dirBtnClicked(dir, e)) return
-        fn(e)
-      })
+        if (!dirBtnClicked(dir, e)) return;
+        fn(e);
+      });
     },
     setTrained(dir, count) {
-      const button = document.querySelector(`#train-${dir}`)
-      if (!button) return
+      const button = document.querySelector(`#train-${dir}`);
+      if (!button) return;
       button.firstElementChild.textContent = `${count} trains`;
-      button.style.backgroundColor = "#69BAFF"
+      button.style.backgroundColor = "#69BAFF";
     },
     onBeginTrainDown(fn) {
-      beginTrainBtn.addEventListener("click", fn)
+      beginTrainBtn.addEventListener("click", fn);
     },
     onDownloadExample(fn) {
-      downloadExamplesBtn.addEventListener("click", fn)
+      downloadExamplesBtn.addEventListener("click", fn);
     },
     onLoadExample(fn) {
-      uploadSampleBtn.addEventListener("change", fn)
-    }
+      uploadSampleBtn.addEventListener("change", fn);
+    },
   };
 })();

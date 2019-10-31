@@ -206,8 +206,8 @@ button[disabled] {
     transition: 500ms transform;
     will-change: transform;
 }
-.controls #start-btn.pressed {
-    background-color: #74070a;
+.learning #start-btn.pressed {
+    background-color: #54070a;
     transform: translateY(6px);
 }
 .learning #start-btn[disabled] {
