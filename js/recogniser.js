@@ -25,10 +25,10 @@
   }
 
   async function listenForDir(dir) {
-    UI.showMessage(`Training for ${dir} direction`);
+    UI.showMessage(`Listening for ${dir} direction`);
     await window.transferRecognizer.collectExample(dir);
     UI.setTrained(dir, ++trainedCounts[dir]);
-    UI.showMessageWithTimeout(`Model trained for ${dir} direction`, 3000);
+    UI.showMessageWithTimeout(`Collected sample for ${dir} direction`, 2000);
   }
 
   UI.onBeginTrainDown(beginTraining);

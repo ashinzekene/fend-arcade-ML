@@ -6,6 +6,8 @@
   const beginTrainBtn = document.querySelector("#begin-training");
   const downloadExamplesBtn = document.querySelector("#download-examples");
   const uploadSampleBtn = document.querySelector("#upload-sample");
+  
+  let timeout;
 
   function dirBtnClicked(dir, e) {
     return e.target.id === `train-${dir}` || e.target.parentElement.id === `train-${dir}`;
@@ -30,11 +32,12 @@
       });
     },
     showMessage(text) {
+      if (timeout) clearTimeout(timeout)
       messageBox.textContent = text;
     },
     showMessageWithTimeout(text, timeout = 3000) {
       messageBox.textContent = text;
-      setTimeout(() => (messageBox.textContent = ""), timeout);
+      timeout = setTimeout(() => (messageBox.textContent = ""), timeout);
     },
     clearMessage() {
       messageBox.textContent = "";

@@ -20,10 +20,9 @@ function startGame(){
 
 //this is run when player looses all lives
 function gameOver(){
-    // HEY NOTHING'S GONNA HAPPEN MAN
-    // overlay.classList.add("show");
-    // gameover.classList.add("show");
-    // UI.disable()
+    overlay.classList.add("show");
+    gameover.classList.add("show");
+    UI.disable()
 }
 
 // this function resets the game
