@@ -3,7 +3,8 @@ fend-arcade-ML
 
 ## What is this? 
 This is an arcade game which is one of my FEND projects
-Forked from https://github.com/sandraisrael/fend-arcade-game/
+
+### Forked from https://github.com/sandraisrael/fend-arcade-game/
 
 ![snippet](images/arcade.png)
 
