@@ -1,3 +1,6 @@
 {
-  "alias": ["fend-ml-rt.ashinzekene.now.sh"]
+  "alias": ["fend-ml-rt.ashinzekene.now.sh"],
+  "github": {
+    "autoAlias": false
+  }
 }
